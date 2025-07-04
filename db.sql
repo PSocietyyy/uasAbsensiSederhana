@@ -34,5 +34,3 @@ CREATE TABLE absensi (
     FOREIGN KEY (mapel_id) REFERENCES jadwal(id)    -- Relasi ke tabel jadwal (kolom mapel_id)
 );
 
-
---- pesan dari relly
