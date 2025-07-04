@@ -17,7 +17,7 @@
         class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700"
       >
         <h2 class="mb-4 text-xl font-bold text-gray-900 md:text-2xl">
-          Manajemen Absensi
+          Edit Absensi
         </h2>
         <section class="w-full mb-6">
           <h3 class="mb-4 text-lg font-semibold text-gray-800">
@@ -134,7 +134,8 @@
                 class="bg-white border border-gray-300 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               />
             </div>
-            <div class="col-span-1 md:col-span-2 mt-2">
+            <div class="col-span-1 md:col-span-2 flex flex-col sm:flex-row gap-4 mt-2">
+                <a href="./absensi.php" class="bg-gray-400  font-medium text-white px-5 py-2.5 rounded-lg w-full sm:w-1/2 hover:bg-gray-500 transition duration-300 ease-in-out text-center">Back</a>
               <button
                 type="submit"
                 class="bg-green-500 font-medium text-white px-5 py-2.5 rounded-lg w-full hover:bg-green-600 transition duration-300 ease-in-out"
@@ -143,97 +144,6 @@
               </button>
             </div>
           </form>
-        </section>
-
-        <section class="w-full mt-6">
-          <h3 class="mb-4 text-lg font-semibold text-gray-800">Daftar Absensi</h3>
-          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table
-              class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-            >
-              <thead class="text-xs text-white uppercase bg-indigo-600">
-                <tr>
-                  <th scope="col" class="px-6 py-3">ID</th>
-                  <th scope="col" class="px-6 py-3">Nama Siswa</th>
-                  <th scope="col" class="px-6 py-3">Mata Pelajaran</th>
-                  <th scope="col" class="px-6 py-3">Waktu Hadir</th>
-                  <th scope="col" class="px-6 py-3">Status</th>
-                  <th scope="col" class="px-6 py-3">Keterangan</th>
-                  <th scope="col" class="px-6 py-3 text-center">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">1</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Andi Pratama</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Matematika - Senin, 04 Oktober 2022</td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">Hadir</td>
-                  <td class="px-6 py-4">-</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_absensi.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">2</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Budi Santoso</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Matematika - Senin, 04 Oktober 2022</td>
-                  <td class="px-6 py-4">-</td>
-                  <td class="px-6 py-4">Sakit</td>
-                  <td class="px-6 py-4">Demam tinggi</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_absensi.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">3</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Citra Dewi</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    Bahasa Indonesia - Selasa, 05 Oktober 2022
-                  </td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">Hadir</td>
-                  <td class="px-6 py-4">-</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_absensi.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </section>
       </div>
     </div>

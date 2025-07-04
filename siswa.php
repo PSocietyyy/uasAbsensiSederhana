@@ -135,7 +135,7 @@
                   <td class="px-6 py-4">Aktif</td>
                   <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
                     <a
-                      href="#"
+                      href="./edit_siswa.php"
                       class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
                       >Edit</a
                     >
