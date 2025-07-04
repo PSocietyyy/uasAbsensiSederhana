@@ -1,4 +1,5 @@
 <?php
+// masukan koneksi
 include("./koneksi.php");
 ?>
 <meta charset="UTF-8" />

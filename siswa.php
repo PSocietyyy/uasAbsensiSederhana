@@ -84,7 +84,7 @@
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               >
                 <option value="aktif">Aktif</option>
-                <option value="tidak_aktif">Tidak Aktif</option>
+                <option value="nonaktif">Tidak Aktif</option>
                 <option value="alumni">Alumni</option>
               </select>
             </div>
@@ -121,18 +121,27 @@
                 </tr>
               </thead>
               <tbody>
+                <?php
+                    // buat nampilin data
+                    $query = "SELECT * FROM siswa"; // query buat nampilin data siswa
+                    $result = mysqli_query($conn, $query); // menjalankan query
+                    // cek apakah ada data
+                    if ($result && mysqli_num_rows($result) > 0) {
+                      // jika ada data,maka lakukan looping
+                      while($row = mysqli_fetch_assoc($result)) {
+                ?>
                 <tr
                   class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
-                  <td class="px-6 py-4">12345</td>
+                  <td class="px-6 py-4"><?= $row['nis'] ?></td>
                   <th
                     scope="row"
                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    Ferdiansyah Pratama
+                    <?= $row['nama_lengkap'] ?>
                   </th>
-                  <td class="px-6 py-4">1A</td>
-                  <td class="px-6 py-4">Aktif</td>
+                  <td class="px-6 py-4"><?= $row['kelas'] ?></td>
+                  <td class="px-6 py-4"><?= $row['status'] ?></td>
                   <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
                     <a
                       href="./edit_siswa.php"
@@ -146,131 +155,12 @@
                     >
                   </td>
                 </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">67890</td>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Budi Setiawan
-                  </th>
-                  <td class="px-6 py-4">2B</td>
-                  <td class="px-6 py-4">Tidak Aktif</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="#"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">11111</td>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Ani Wahyu
-                  </th>
-                  <td class="px-6 py-4">3A</td>
-                  <td class="px-6 py-4">Alumni</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="#"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">22222</td>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Rizki Pratama
-                  </th>
-                  <td class="px-6 py-4">3B</td>
-                  <td class="px-6 py-4">Aktif</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="#"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">33333</td>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Adi Nugraha
-                  </th>
-                  <td class="px-6 py-4">4A</td>
-                  <td class="px-6 py-4">Tidak Aktif</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="#"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">44444</td>
-                  <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Sri Wahyuni
-                  </th>
-                  <td class="px-6 py-4">4B</td>
-                  <td class="px-6 py-4">Alumni</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="#"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
+                
+                <?php }
+                // Jika tidak ada data
+                } else {
+                  echo '<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">Tidak ada data siswa ditemukan.</td></tr>';
+                } ?>
               </tbody>
             </table>
           </div>
