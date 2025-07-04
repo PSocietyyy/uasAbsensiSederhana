@@ -33,3 +33,6 @@ CREATE TABLE absensi (
     FOREIGN KEY (siswa_id) REFERENCES siswa(id),    -- Relasi ke tabel siswa (kolom siswa_id)
     FOREIGN KEY (mapel_id) REFERENCES jadwal(id)    -- Relasi ke tabel jadwal (kolom mapel_id)
 );
+
+
+--- pesan dari relly
