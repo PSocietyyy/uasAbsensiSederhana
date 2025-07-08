@@ -2,7 +2,7 @@
 -- TABEL SISWA
 -- ===============================
 CREATE TABLE siswa (
-    id BIGINT PRIMARY KEY,                          -- ID unik untuk setiap siswa (digunakan sebagai Primary Key)
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,                          -- ID unik untuk setiap siswa (digunakan sebagai Primary Key)
     nis VARCHAR(255),                               -- Nomor Induk Siswa, bisa unik tergantung kebutuhan
     nama_lengkap VARCHAR(255),                      -- Nama lengkap siswa
     kelas VARCHAR(255),                             -- Nama kelas, contoh: 10 IPA 2
@@ -13,7 +13,7 @@ CREATE TABLE siswa (
 -- TABEL JADWAL
 -- ===============================
 CREATE TABLE jadwal (
-    id BIGINT PRIMARY KEY,                          -- ID unik untuk setiap jadwal pelajaran
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,                          -- ID unik untuk setiap jadwal pelajaran
     nama_mapel VARCHAR(255),                        -- Nama mata pelajaran, contoh: Matematika
     tanggal DATE,                                   -- Tanggal pelajaran dilaksanakan
     waktu_mulai TIME,                               -- Jam mulai pelajaran
@@ -24,7 +24,7 @@ CREATE TABLE jadwal (
 -- TABEL ABSENSI
 -- ===============================
 CREATE TABLE absensi (
-    id BIGINT PRIMARY KEY,                          -- ID unik untuk setiap catatan absensi
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,                          -- ID unik untuk setiap catatan absensi
     siswa_id BIGINT,                                -- Mengacu ke ID siswa yang melakukan absensi (relasi ke tabel siswa)
     mapel_id BIGINT,                                -- Mengacu ke ID jadwal/mapel yang dihadiri (relasi ke tabel jadwal)
     waktu_hadir TIME,                               -- Waktu siswa melakukan absensi (jam saja)

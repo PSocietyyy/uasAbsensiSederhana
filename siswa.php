@@ -24,7 +24,7 @@
             Formulir Data Siswa
           </h3>
           <form
-            action="#"
+            action="./system/tambah_siswa.php"
             method="post"
             class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 bg-gray-50 rounded-lg shadow-sm"
           >
@@ -97,6 +97,7 @@
               </button>
               <button
                 type="submit"
+                name="submit"
                 class="bg-blue-500 font-medium text-white px-5 py-2.5 rounded-lg w-full sm:w-1/2 hover:bg-blue-600 transition duration-300 ease-in-out"
               >
                 Tambah
@@ -144,12 +145,12 @@
                   <td class="px-6 py-4"><?= $row['status'] ?></td>
                   <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
                     <a
-                      href="./edit_siswa.php"
+                      href="./edit_siswa.php?id=<?= $row['id'] ?>"
                       class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
                       >Edit</a
                     >
                     <a
-                      href="#"
+                      href="./system/hapus_siswa.php?id=<?= $row['id'] ?>"
                       class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
                       >Hapus</a
                     >
