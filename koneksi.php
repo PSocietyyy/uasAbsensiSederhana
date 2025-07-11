@@ -1,9 +1,9 @@
 <?php
 
 // Variabel untuk koneksi ke database
-$DB_HOST = "127.0.0.1";
-$DB_USER = "dev";
-$DB_PASS = "dev*1234";
+$DB_HOST = "localhost";
+$DB_USER = "root";
+$DB_PASS = "";
 $DB_NAME = "absensi_sekolah";
 
 // Membuat koneksi ke database

@@ -10,6 +10,13 @@
     <?php
     $page = "mapel";
     include "include/sidebar.php";
+    if(isset($_GET["id"])) {
+      $id = $_GET["id"];
+
+      $sql = "SELECT * FROM jadwal WHERE id='$id'";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+    }
     ?>
 
     <div class="p-4 sm:ml-64">
@@ -24,10 +31,11 @@
             Formulir Mata Pelajaran
           </h3>
           <form
-            action="#"
+            action="./system/edit_mapel.php"
             method="post"
             class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 bg-gray-50 rounded-lg shadow-sm"
           >
+          <input type="hidden" name="id" value="<?= $row['id'] ?>"/>
             <div class="col-span-1">
               <label
                 for="nama_mapel"
@@ -38,6 +46,7 @@
                 type="text"
                 name="nama_mapel"
                 id="nama_mapel"
+                value="<?= $row['nama_mapel'] ?>"
                 placeholder="Masukkan nama mata pelajaran"
                 class="bg-white border border-gray-300 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full p-2.5"
                 required
@@ -71,6 +80,7 @@
                   id="default-datepicker"
                   type="text"
                   name="tanggal"
+                  value="<?= $row['tanggal'] ?>"
                   class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   placeholder="Pilih tanggal"
                 />
@@ -90,6 +100,7 @@
                   class="rounded-none rounded-s-lg bg-white border text-gray-900 leading-none focus:ring-blue-500 focus:border-blue-500 block flex-1 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   min="00:00"
                   max="23:59"
+                  value="<?= $row['waktu_mulai'] ?>"
                   value="00:00"
                   name="waktu_mulai"
                   required
@@ -124,6 +135,7 @@
                 <input
                   type="time"
                   id="waktu_selesai"
+                  value="<?= $row['waktu_selesai'] ?>"
                   class="rounded-none rounded-s-lg bg-white border text-gray-900 leading-none focus:ring-blue-500 focus:border-blue-500 block flex-1 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                   min="00:00"
                   max="23:59"
@@ -154,9 +166,10 @@
               <a href="./mapel.php" class="bg-gray-400 font-medium text-white px-5 py-2.5 rounded-lg w-full sm:w-1/2 hover:bg-gray-500 transition duration-300 ease-in-out text-center">Back</a>
               <button
                 type="submit"
+                name="submit"
                 class="bg-blue-500 font-medium text-white px-5 py-2.5 rounded-lg w-full sm:w-1/2 hover:bg-blue-600 transition duration-300 ease-in-out"
               >
-                Tambah
+                Edit
               </button>
             </div>
           </form>

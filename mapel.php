@@ -24,7 +24,7 @@
             Formulir Mata Pelajaran
           </h3>
           <form
-            action="#"
+            action="./system/tambah_mapel.php"
             method="post"
             class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 bg-gray-50 rounded-lg shadow-sm"
           >
@@ -158,11 +158,12 @@
                 Reset
               </button>
               <button
-                type="submit"
-                class="bg-blue-500 font-medium text-white px-5 py-2.5 rounded-lg w-full sm:w-1/2 hover:bg-blue-600 transition duration-300 ease-in-out"
-              >
-                Tambah
-              </button>
+              type="submit"
+              name="submit"
+              class="bg-blue-500 font-medium text-white px-5 py-2.5 rounded-lg w-full sm:w-1/2 hover:bg-blue-600 transition duration-300 ease-in-out"
+            >
+                Tambah  
+            </button>
             </div>
           </form>
         </section>
@@ -183,106 +184,40 @@
                 </tr>
               </thead>
               <tbody>
+                 <?php
+                    // buat nampilin data
+                    $query = "SELECT * FROM jadwal"; // query buat nampilin data siswa
+                    $result = mysqli_query($conn, $query); // menjalankan query
+                    // cek apakah ada data
+                    if ($result && mysqli_num_rows($result) > 0) {
+                      // jika ada data,maka lakukan looping
+                      while($row = mysqli_fetch_assoc($result)) {
+                ?>
                 <tr
                   class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
-                  <td class="px-6 py-4">Matematika</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Senin, 04 Oktober 2022</td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">09:00</td>
+                  <td class="px-6 py-4"><?= $row['nama_mapel'] ?></td>
+                  <td class="px-6 py-4 whitespace-nowrap"><?= $row['tanggal'] ?></td>
+                  <td class="px-6 py-4"><?= $row['waktu_mulai'] ?></td>
+                  <td class="px-6 py-4"><?= $row['waktu_selesai'] ?></td>
                   <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
                     <a
-                      href="./edit_mapel.php"
+                      href="./edit_mapel.php?id=<?= $row['id'] ?>"
                       class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
                       >Edit</a
                     >
                     <a
-                      href="#"
+                      href="./system/hapus_mapel.php?id=<?= $row['id'] ?>"
                       class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
                       >Hapus</a
                     >
                   </td>
                 </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">Bahasa Indonesia</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Selasa, 05 Oktober 2022</td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">09:00</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_mapel.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">Bahasa Inggris</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Rabu, 06 Oktober 2022</td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">09:00</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_mapel.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">Ilmu Pengetahuan Sosial</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Kamis, 07 Oktober 2022</td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">09:00</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_mapel.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <td class="px-6 py-4">Ilmu Pengetahuan Alam</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Jumat, 08 Oktober 2022</td>
-                  <td class="px-6 py-4">08:00</td>
-                  <td class="px-6 py-4">09:00</td>
-                  <td class="px-6 py-4 flex flex-col sm:flex-row gap-2 items-center justify-center">
-                    <a
-                      href="./edit_mapel.php"
-                      class="text-green-600 font-semibold hover:underline text-sm sm:text-base"
-                      >Edit</a
-                    >
-                    <a
-                      href="#"
-                      class="bg-red-500 px-3 py-1 rounded-md text-white font-semibold hover:bg-red-600 transition duration-300 ease-in-out text-sm"
-                      >Hapus</a
-                    >
-                  </td>
-                </tr>
+               <?php }
+                // Jika tidak ada data
+                } else {
+                  echo '<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">Tidak ada data siswa ditemukan.</td></tr>';
+                } ?>
               </tbody>
             </table>
           </div>
